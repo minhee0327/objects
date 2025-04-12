@@ -61,82 +61,61 @@
 
 
 ## 상속 문제
-class Parent {
-    String message = "Parent's message";
-}
 
-class Child extends Parent {
-    String message = "Child's message";
-}
+	class Parent {
+	    String message = "Parent's message";
+	}
+	
+	class Child extends Parent {
+	    String message = "Child's message";
+	}
 
-public class Main {
-    public static void main(String[] args) {
-        Parent obj1 = new Parent();
-        Parent obj2 = new Child();
-        Child obj3 = new Child();
+	public class Main {
+    		public static void main(String[] args) {
+        		Parent obj1 = new Parent();
+        		Parent obj2 = new Child();
+        		Child obj3 = new Child();
 
-        System.out.println(obj1.message);
-        System.out.println(obj2.message);
-        System.out.println(obj3.message);
-    }
-}
-
-
-
-
-
-
-
-
-
- // 출력: Parent's message
- // 출력: Parent's message
- // 출력: Child's message
+        		System.out.println(obj1.message);
+        		System.out.println(obj2.message);
+        		System.out.println(obj3.message);
+	    }
+	}
+***
+Parent's message   
+Parent's message   
+Child's message   
 
 
 
 
 
 
-
-
-
-
-class Parent {
-    String message = "Parent's variable";
-
-    String getMessage() {
-        return "Parent's method: " + message;
-    }
-}
-
-class Child extends Parent {
-    String message = "Child's variable";
-
-    @Override
-    String getMessage() {
-        return "Child's method: " + message;
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Parent obj = new Child();
-
-        System.out.println(obj.message);
-        System.out.println(obj.getMessage());
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-// 출력: Parent's variable (참조 타입에 따라 변수 결정)
-// 출력: Child's method: Child's variable (다형성을 따름)
+	class Parent {
+	    String message = "Parent's variable";
+	
+	    String getMessage() {
+	        return "Parent's method: " + message;
+	    }
+	}
+	
+	class Child extends Parent {
+	    String message = "Child's variable";
+	
+	    @Override
+	    String getMessage() {
+	        return "Child's method: " + message;
+	    }
+	}
+	
+	public class Main {
+	    public static void main(String[] args) {
+	        Parent obj = new Child();
+	
+	        System.out.println(obj.message);
+	        System.out.println(obj.getMessage());
+	    }
+	}
+***
+Parent's variable    
+Child's method: Child's variable   

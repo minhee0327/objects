@@ -1,31 +1,49 @@
-public class Main {
-    public static void main(String[] args) {
-        A b = new B();
-        b.paint();
-        b.draw();
-    }
-}
+            public class Main {
+                public static void main(String[] args) {
+                    A b = new B();
+                    b.paint();
+                    b.draw();
+                }
+            }
+            
+            class A {
+                public void paint() {
+                    System.out.print("A");
+                    draw();
+                }
+            
+                public void draw() {
+                    System.out.print("B");
+                    draw();
+                }
+            }
+            
+            class B extends A {
+                public void paint() {
+                    super.draw();
+                    System.out.print("C");
+                    this.draw();
+                }
+            
+                public void draw() {
+                    System.out.print("D");
+                }
+            }
 
-class A {
-    public void paint() {
-        System.out.print("A");
-        draw();
-    }
 
-    public void draw() {
-        System.out.print("B");
-        draw();
-    }
-}
+BDCDD
+Main에서 A b = new B();로 생성한 후, b.paint() 호출   
+- B.paint()가 호출됨    
+• 첫 번째로 super.draw() 호출 → A.draw()를 실행     
 
-class B extends A {
-    public void paint() {
-        super.draw();
-        System.out.print("C");
-        this.draw();
-    }
+– A.draw() 내부: 먼저 "B"를 출력     
+– 그 후, draw()를 호출하는데 동적 바인딩에 의해 B.draw()가 실행되어 "D" 출력     
+– A.draw() 종료 → 이 부분의 출력은 "BD"    
+• 다음 System.out.print("C") 실행 → 출력 "C" 추가 → 현재 "BDC"    
+• 이후 this.draw() 호출 → B.draw() 실행, "D" 출력 → 현재 "BDCD"  
+그 다음 main에서 b.draw() 직접 호출 → B.draw() 실행, "D" 출력 
 
-    public void draw() {
-        System.out.print("D");
-    }
-}
+
+동적 바인딩은 실행 시간에 객체의 실제 타입을 기반으로 호출할 메서드를 결정하는 메커니즘입니다. 
+예를 들어, 부모 타입의 참조 변수가 자식 클래스 객체를 가리킬 때 오버라이딩된 메서드는 자식 클래스의 구현이 실행됩니다. 
+이렇게 하면 다형성이 구현되어, 코드의 유연성과 확장성이 향상됩니다.

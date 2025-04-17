@@ -1,0 +1,39 @@
+1. 
+
+      public interface test {
+        void test(List<String> test);
+        void test(List<Integer> test);
+      }
+
+
+    
+2. 
+      public static void main(String[] args) {
+        new Generic<>().new Container(0).print();
+      }
+      static class Printer {
+          void print(Integer a) {
+              System.out.print("A" + a);
+          }
+      
+          void print(Number a) {
+              System.out.print("C" + a);
+          }
+      
+          void print(Object a) {
+              System.out.print("B" + a);
+          }
+      }
+      static class Generic<T> {
+          class Container {
+              T value;
+      
+              Container(T value) {
+                  this.value = value;
+              }
+      
+              void print() {
+                  new Printer().print(value);
+              }
+          }
+      }

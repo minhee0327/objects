@@ -1,0 +1,24 @@
+public class Main {
+    public static void main(String[] args) {
+        Person p = new Person("Messi"); // (1)
+        String name = p.name;
+
+        wow(p);
+
+        System.out.println(name);
+        System.out.println(p.name);
+    }
+
+    static void wow(Person p) {
+        p.name = "Ronaldo";
+        p = new Person("Salah"); // (2)
+    }
+}
+
+public class Person {
+    String name;
+
+    public Person(String name) {
+        this.name = name;
+    }
+}

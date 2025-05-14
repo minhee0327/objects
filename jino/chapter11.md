@@ -37,8 +37,11 @@
     6. 추상 메서드이기 때문에 다시 taxablePolicy 의 afterCalculated 실행
  즉 -> RegularPolicy(BasicRatePolicy).calculateFee 실행 > TaxablePolicy(AdditionalRatePolicy).afterCalculated 실행.....
 
-이거 맞냐...
-    
+이거 맞나? 더 복잡해지는 것은 아닌지...
+
+FG_auth 를 상속이 아닌 합성으로 재구성해보기
+
+  
 
 ## 🔗 참고 링크
 - 

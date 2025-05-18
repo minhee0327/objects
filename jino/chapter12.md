@@ -44,6 +44,9 @@
 ## ❓ 궁금한 점
 - p 415 맨 아랫줄, 부모 클래스에 정의된 모든 메서드를 자식 클래스에서 오버라이딩 하는거 아닌가? 오버로딩 오타인가.
 - 다운 캐스팅 사용 하는 법? 활용하는 곳?
+  - Parent parent = new Child(); 로 사용할 때 결국 parent의 메서드만 사용 가능한데 이럴 때 쓰는건가?
+    - if(parent instance of Child) Child child = (Child) parent; 
+  - List list = new ArrayList(); 일 때 ArrayList 의 메서드를 쓰고 싶을 때??
 
   
 
